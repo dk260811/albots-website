@@ -1,18 +1,21 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import Link from "next/link";
 
 type Language = "en" | "al";
 
 const content = {
   en: {
     nav: {
+      offer: "Our Offer",
       services: "Services",
       capabilities: "AI Readiness",
       useCases: "Use Cases",
       whyUs: "Why Us",
       contact: "Contact"
     },
+    offerCta: "See Our Offer",
     hero: {
       badge: "Built for Albanian businesses",
       title: "AI Customer Service Automation for Albanian Businesses",
@@ -82,12 +85,14 @@ const content = {
   },
   al: {
     nav: {
+      offer: "Oferta Jonë",
       services: "Shërbime",
       capabilities: "Gatishmëri AI",
       useCases: "Përdorime",
       whyUs: "Pse Ne",
       contact: "Kontakt"
     },
+    offerCta: "Shiko Ofertën",
     hero: {
       badge: "Ndërtuar për bizneset shqiptare",
       title: "Automatizimi i Shërbimit ndaj Klientit me AI për Bizneset Shqiptare",
@@ -117,7 +122,7 @@ const content = {
       items: [
         "Automatizim i plotë i proceseve të shërbimit ndaj klientit",
         "Mirëmbajtje e knowledge base dhe strukturim i përmbajtjes për AI",
-        "Automatizim i email-eve dhe sekuencave të ndjekjes",
+        "Automatizim i email-eve",
         "AI assist për agjentët njerëzorë të suportit",
         "LLM i sigurt in-house për të dhëna sensitive të biznesit"
       ]
@@ -182,7 +187,20 @@ export default function LandingPage() {
 
       <section className="section-shell pt-10 md:pt-14">
         <div className="flex items-center justify-between">
-          <p className="text-lg font-semibold tracking-tight text-kosovo-deep">Albots</p>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="rounded-full border border-kosovo-deep/25 bg-white px-4 py-2 text-sm font-semibold tracking-tight text-kosovo-deep shadow-sm transition hover:border-kosovo-deep/40 hover:bg-kosovo-pale"
+            >
+              ALBots Home
+            </Link>
+            <Link
+              href="/our-offer"
+              className="rounded-full border border-kosovo-deep/25 bg-white px-4 py-2 text-sm font-semibold tracking-tight text-kosovo-deep shadow-sm transition hover:border-kosovo-deep/40 hover:bg-kosovo-pale"
+            >
+              Oferta Jonë
+            </Link>
+          </div>
           <div className="rounded-full border border-white/80 bg-white/90 p-1 shadow-sm backdrop-blur">
             <button
               onClick={() => setLang("en")}
@@ -237,10 +255,21 @@ export default function LandingPage() {
               >
                 {t.hero.cta}
               </a>
-              <p className="inline-flex rounded-xl border border-kosovo-deep/20 bg-white px-4 py-3 text-sm text-kosovo-deep">
-                {lang === "al"
-                  ? "Telefono 01234567 për të testuar demon tonë."
-                  : "Call 01234567 to test our demo."}
+              <Link
+                href="/our-offer"
+                className="inline-flex rounded-xl border-2 border-kosovo-deep/30 bg-white px-6 py-3 text-sm font-medium text-kosovo-deep shadow-sm transition hover:-translate-y-0.5 hover:border-kosovo-deep/50 hover:bg-kosovo-pale hover:shadow-md"
+              >
+                {t.offerCta}
+              </Link>
+              <p className="inline-flex flex-wrap items-center gap-2 rounded-xl border border-kosovo-deep/20 bg-white px-4 py-3 text-sm text-kosovo-deep">
+                {lang === "al" ? "Telefono 012435425 ose" : "Call 01234567 or"}
+                <Link
+                  href="/our-offer"
+                  className="rounded-md border border-kosovo-deep/25 bg-kosovo-pale px-2.5 py-1 font-medium transition hover:border-kosovo-deep/40 hover:bg-white"
+                >
+                  {lang === "al" ? "kliko këtu" : "click here"}
+                </Link>
+                {lang === "al" ? "për të testuar voicebotin tonë." : "to test our voicebot."}
               </p>
             </div>
           </div>
@@ -261,10 +290,10 @@ export default function LandingPage() {
               </div>
               <div className="rounded-2xl bg-white/15 p-4 backdrop-blur">
                 <p className="text-sky-100">{lang === "al" ? "Gjuhë" : "Languages"}</p>
-                <p className="mt-1 text-xl font-semibold">Shq / EN / DEU / SRB / ...</p>
+                <p className="mt-1 text-xl font-semibold">Shq / EN / DEU / FR / IT / ...</p>
               </div>
-              <div className="rounded-2xl bg-kosovo-gold p-4 text-slate-900">
-                <p>{lang === "al" ? "Kursim Kostosh" : "Cost Saving"}</p>
+              <div className="rounded-2xl bg-white/15 p-4 backdrop-blur">
+                <p className="text-sky-100">{lang === "al" ? "Kursim Kostosh" : "Cost Saving"}</p>
                 <p className="mt-1 text-xl font-semibold">-40%</p>
               </div>
             </div>
