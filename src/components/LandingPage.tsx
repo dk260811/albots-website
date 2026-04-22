@@ -152,7 +152,7 @@ const content = {
       name: "Emri",
       email: "Email",
       message: "Mesazhi",
-      cta: "Fillo Tani"
+      cta: "Dergo"
     },
     footer: {
       brand: "Albots",
@@ -164,20 +164,42 @@ const content = {
 
 export default function LandingPage() {
   const [lang, setLang] = useState<Language>("al");
+  const [isSending, setIsSending] = useState(false);
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
   const t = useMemo(() => content[lang], [lang]);
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const formEl = event.currentTarget;
+    const formData = new FormData(formEl);
 
-    console.log("Contact form submit", {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-      language: lang
-    });
+    setIsSending(true);
+    setFormStatus("idle");
 
-    event.currentTarget.reset();
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          language: lang
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit contact form");
+      }
+
+      setFormStatus("success");
+      formEl.reset();
+    } catch (error) {
+      console.error("Contact form error", error);
+      setFormStatus("error");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -262,14 +284,18 @@ export default function LandingPage() {
                 {t.offerCta}
               </Link>
               <p className="inline-flex flex-wrap items-center gap-2 rounded-xl border border-kosovo-deep/20 bg-white px-4 py-3 text-sm text-kosovo-deep">
-                {lang === "al" ? "Telefono 012435425 ose" : "Call 01234567 or"}
+                {lang === "al"
+                  ? "Telefono 012435425 (keni parasysh që telefonata në këtë demo përmes IPKO ose VALA mund të kushtojë 55 deri 80 cent minuta) ose"
+                  : "Call 01234567 or"}
                 <Link
-                  href="/our-offer"
+                  href="/web-call"
                   className="rounded-md border border-kosovo-deep/25 bg-kosovo-pale px-2.5 py-1 font-medium transition hover:border-kosovo-deep/40 hover:bg-white"
                 >
                   {lang === "al" ? "kliko këtu" : "click here"}
                 </Link>
-                {lang === "al" ? "për të testuar voicebotin tonë." : "to test our voicebot."}
+                {lang === "al"
+                  ? "(ky opsion është falas) për të testuar voicebotin tonë."
+                  : "to test our voicebot."}
               </p>
             </div>
           </div>
@@ -379,11 +405,26 @@ export default function LandingPage() {
               required
             />
             <button
-              className="mt-2 w-fit rounded-xl bg-kosovo-deep px-6 py-3 text-sm font-medium text-white transition hover:bg-sky-700"
+              className="mt-2 w-fit rounded-xl bg-kosovo-deep px-6 py-3 text-sm font-medium text-white transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-70"
               type="submit"
+              disabled={isSending}
             >
-              {t.contact.cta}
+              {isSending ? (lang === "al" ? "Duke dërguar..." : "Sending...") : t.contact.cta}
             </button>
+            {formStatus === "success" ? (
+              <p className="text-sm text-emerald-700">
+                {lang === "al"
+                  ? "Mesazhi u dërgua me sukses."
+                  : "Message sent successfully."}
+              </p>
+            ) : null}
+            {formStatus === "error" ? (
+              <p className="text-sm text-rose-700">
+                {lang === "al"
+                  ? "Dërgimi dështoi. Ju lutem provoni përsëri."
+                  : "Sending failed. Please try again."}
+              </p>
+            ) : null}
           </form>
         </div>
       </section>

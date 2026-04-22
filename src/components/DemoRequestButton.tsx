@@ -15,7 +15,6 @@ type FormState = {
   botName: string;
   description: string;
   email: string;
-  file: File | null;
 };
 
 type FormErrors = {
@@ -34,8 +33,6 @@ const text = {
     botDescription: "Përshkrimi",
     botDescriptionPlaceholder:
       "Përshkruani çfarë dëshironi të bëjë chatbot-i juaj (p.sh. suport klienti, rezervime, FAQ, etj.)",
-    uploadLabel: "Ngarkoni dokumente (opsionale)",
-    uploadHint: "Pranon PDF, DOCX, TXT",
     email: "Email",
     emailPlaceholder: "Adresa juaj e email-it",
     submit: "Kërko Demo",
@@ -59,8 +56,6 @@ const text = {
     botDescription: "Description",
     botDescriptionPlaceholder:
       "Describe what you want your chatbot to do (e.g. customer support, booking, FAQ, etc.)",
-    uploadLabel: "Upload documents (optional)",
-    uploadHint: "Accepts PDF, DOCX, TXT",
     email: "Email",
     emailPlaceholder: "Your email address",
     submit: "Request Demo",
@@ -80,8 +75,7 @@ const text = {
 const initialForm: FormState = {
   botName: "",
   description: "",
-  email: "",
-  file: null
+  email: ""
 };
 
 export default function DemoRequestButton({
@@ -135,7 +129,7 @@ export default function DemoRequestButton({
       payload.append("botName", formState.botName.trim());
       payload.append("description", formState.description.trim());
       payload.append("email", formState.email.trim());
-      if (formState.file) payload.append("file", formState.file);
+      payload.append("demoType", demoType);
 
       const response = await fetch("/api/demo-request", {
         method: "POST",
@@ -233,19 +227,6 @@ export default function DemoRequestButton({
                     {errors.description ? (
                       <p className="mt-1 text-xs text-rose-600">{errors.description}</p>
                     ) : null}
-                  </div>
-
-                  <div>
-                    <label className="mb-1.5 block text-sm font-medium text-slate-800">{t.uploadLabel}</label>
-                    <input
-                      type="file"
-                      accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
-                      onChange={(event) =>
-                        setFormState((prev) => ({ ...prev, file: event.target.files?.[0] ?? null }))
-                      }
-                      className="w-full rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-2.5 text-sm text-slate-700 file:mr-3 file:rounded-md file:border-0 file:bg-kosovo-pale file:px-3 file:py-1.5 file:text-kosovo-deep"
-                    />
-                    <p className="mt-1 text-xs text-slate-500">{t.uploadHint}</p>
                   </div>
 
                   <div>

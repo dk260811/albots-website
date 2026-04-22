@@ -9,12 +9,16 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@twilio/voice-sdk": "^2.18.2",
     "next": "^16.2.3",
+    "nodemailer": "^8.0.5",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "twilio": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "20.11.30",
+    "@types/nodemailer": "^8.0.0",
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22",
     "autoprefixer": "10.4.19",

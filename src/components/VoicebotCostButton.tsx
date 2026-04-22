@@ -195,7 +195,7 @@ export default function VoicebotCostButton({ label }: VoicebotCostButtonProps) {
                     </div>
                     <div>
                       <label className="mb-1.5 block text-sm font-medium text-slate-800">
-                        Rroga mujore e një personi (EUR)
+                        Rroga mujore e një personi Bruto (EUR)
                       </label>
                       <input
                         type="number"

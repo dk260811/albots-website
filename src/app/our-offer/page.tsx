@@ -129,11 +129,11 @@ const content = {
       "Trajnimin e AI aty ku është e nevojshme, në varësi të kompleksitetit dhe volumit të të dhënave",
       "Integrimin me API, databaza dhe sisteme ekzistuese, sipas kërkesave të biznesit",
       "Përcaktimin e kanaleve të përdorimit (website, telefon, WhatsApp, etj.) dhe shkallës së implementimit",
-      "Zgjedhjen e teknologjisë së duhur — jo çdo zgjidhje kërkon AI, dhe jo çdo problem duhet zgjidhur me modele probabilistike",
+      "Zgjedhjen e teknologjisë së duhur, jo çdo zgjidhje kërkon AI, dhe jo çdo problem duhet zgjidhur me modele probabilistike",
       "Optimizimin e balancës mes automatizimit dhe thjeshtësisë, për të shmangur kompleksitetin e panevojshëm"
     ],
     buildDetailsEnding:
-      "Në ALBots, qasja është gjithmonë e njëjtë: zgjidhja i përshtatet klientit dhe nevojave të tij reale — jo trendit apo teknologjisë në treg.",
+      "Në ALBots, qasja është gjithmonë e njëjtë: zgjidhja i përshtatet klientit dhe nevojave të tij reale, jo trendit apo teknologjisë në treg.",
     implementDetailsButton: "Shiko fazën e implementimit",
     implementDetailsTitle: "Implementimi në kanalet tuaja",
     implementDetailsText:
@@ -151,7 +151,7 @@ const content = {
     postDetailsButton: "Shiko fazën post-implementim",
     postDetailsTitle: "Post-Implementim dhe Përmirësim i Vazhdueshëm",
     postDetailsText:
-      "Puna nuk përfundon me implementimin — në fakt, aty fillon faza më e rëndësishme për suksesin afatgjatë. Kjo fazë përfshin:",
+      "Puna nuk përfundon me implementimin, në fakt, aty fillon faza më e rëndësishme për suksesin afatgjatë. Kjo fazë përfshin:",
     postDetailsPoints: [
       "Monitorimin e vazhdueshëm të performancës së zgjidhjes në përdorim real",
       "Kontrollin e cilësisë (quality control) për të siguruar përgjigje të sakta dhe eksperiencë të mirë për përdoruesit",
@@ -160,7 +160,7 @@ const content = {
       "Përshtatjen e zgjidhjes me ndryshimet në nevojat e klientëve dhe biznesit"
     ],
     postDetailsEnding:
-      "Në ALBots, besojmë që implementimi është vetëm hapi i parë — përmirësimi i vazhdueshëm është çelësi i vërtetë i suksesit. Nevojat e konsumatorëve ndryshojnë vazhdimisht, dhe për këtë arsye edhe zgjidhjet duhet të evoluojnë në mënyrë të vazhdueshme.",
+      "Në ALBots, besojmë që implementimi është vetëm hapi i parë, përmirësimi i vazhdueshëm është çelësi i vërtetë i suksesit. Nevojat e konsumatorëve ndryshojnë vazhdimisht, dhe për këtë arsye edhe zgjidhjet duhet të evoluojnë në mënyrë të vazhdueshme.",
     closeLabel: "Mbyll",
     howItems: [
       {
