@@ -116,6 +116,11 @@ export default function WebCallPage() {
         <p className="mt-3 text-slate-600">
           Klikoni <strong>Call bot</strong> për të folur me voicebot-in direkt nga browser-i.
         </p>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+          Ju lutem kini parasysh t&apos;i jepni qasje mikrofonit tuaj ne browser dhe injoroni
+          mesazhin startues qe ndegjohet kur thirrne kete demo. Kualiteti i transkribimit varet
+          edhe nga mikrofoni juaj.
+        </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <button

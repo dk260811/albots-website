@@ -285,7 +285,7 @@ export default function LandingPage() {
               </Link>
               <p className="inline-flex flex-wrap items-center gap-2 rounded-xl border border-kosovo-deep/20 bg-white px-4 py-3 text-sm text-kosovo-deep">
                 {lang === "al"
-                  ? "Telefono 012435425 (keni parasysh që telefonata në këtë demo përmes IPKO ose VALA mund të kushtojë 55 deri 80 cent minuta) ose"
+                  ? "Telefono +1 218 245 4571 (keni parasysh që telefonata në këtë demo përmes IPKO ose VALA mund të kushtojë 55 deri 80 cent minuta) ose"
                   : "Call 01234567 or"}
                 <Link
                   href="/web-call"
