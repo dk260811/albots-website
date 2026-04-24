@@ -78,9 +78,9 @@ const content = {
       cta: "Get Started"
     },
     footer: {
-      brand: "Albots",
+      brand: "ALBotics",
       text: "AI automation for modern customer service.",
-      email: "hello@albots.ai"
+      email: "service@albotics.com"
     }
   },
   al: {
@@ -155,9 +155,9 @@ const content = {
       cta: "Dergo"
     },
     footer: {
-      brand: "Albots",
+      brand: "ALBotics",
       text: "Automatizim AI për shërbim modern ndaj klientit.",
-      email: "hello@albots.ai"
+      email: "service@albotics.com"
     }
   }
 };
@@ -214,7 +214,7 @@ export default function LandingPage() {
               href="/"
               className="rounded-full border border-kosovo-deep/25 bg-white px-4 py-2 text-sm font-semibold tracking-tight text-kosovo-deep shadow-sm transition hover:border-kosovo-deep/40 hover:bg-kosovo-pale"
             >
-              ALBots Home
+              ALBotics Home
             </Link>
             <Link
               href="/our-offer"
@@ -244,7 +244,6 @@ export default function LandingPage() {
             </button>
           </div>
         </div>
-
         <div className="mt-6 flex flex-wrap gap-5 text-sm text-slate-600">
           <a href="#services" className="transition hover:text-slate-900">
             {t.nav.services}
@@ -260,6 +259,9 @@ export default function LandingPage() {
           </a>
           <a href="#contact" className="transition hover:text-slate-900">
             {t.nav.contact}
+          </a>
+          <a href="mailto:service@albotics.com" className="transition hover:text-slate-900">
+            service@albotics.com
           </a>
         </div>
 
@@ -286,7 +288,7 @@ export default function LandingPage() {
               <p className="inline-flex flex-wrap items-center gap-2 rounded-xl border border-kosovo-deep/20 bg-white px-4 py-3 text-sm text-kosovo-deep">
                 {lang === "al"
                   ? "Telefono +1 218 245 4571 (keni parasysh që telefonata në këtë demo përmes IPKO ose VALA mund të kushtojë 55 deri 80 cent minuta) ose"
-                  : "Call 01234567 or"}
+                  : "Call +1 218 245 4571 (please note that calls in this demo via IPKO or VALA may cost 55 to 80 cents per minute), or"}
                 <Link
                   href="/web-call"
                   className="rounded-md border border-kosovo-deep/25 bg-kosovo-pale px-2.5 py-1 font-medium transition hover:border-kosovo-deep/40 hover:bg-white"
@@ -295,7 +297,7 @@ export default function LandingPage() {
                 </Link>
                 {lang === "al"
                   ? "(ky opsion është falas) për të testuar voicebotin tonë."
-                  : "to test our voicebot."}
+                  : "(this option is free) to test our voicebot."}
               </p>
             </div>
           </div>

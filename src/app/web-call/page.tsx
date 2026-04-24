@@ -12,12 +12,47 @@ type TokenResponse = {
   ttl: number;
 };
 
+type Language = "al" | "en";
+
+const content = {
+  al: {
+    title: "Web Voice Demo",
+    heading: "Telefono voicebot-in nga browser-i",
+    intro: "Klikoni Call bot për të folur me voicebot-in direkt nga browser-i.",
+    note:
+      "Ju lutemi, sigurohuni që t'i jepni qasje mikrofonit në browser dhe injorojeni mesazhin hyrës që dëgjohet kur e telefononi këtë demo. Cilësia e transkriptimit varet edhe nga mikrofoni juaj.",
+    callButton: "Call bot",
+    hangupButton: "Hang up",
+    status: "Status",
+    identity: "Identity",
+    error: "Gabim",
+    back: "Kthehu në faqen kryesore",
+    callError: "Nuk u lidh dot thirrja nga browser-i."
+  },
+  en: {
+    title: "Web Voice Demo",
+    heading: "Call the voicebot from your browser",
+    intro: "Click Call bot to speak with the voicebot directly from your browser.",
+    note:
+      "Please make sure to allow microphone access in your browser and ignore the startup message you hear when calling this demo. Transcription quality also depends on your microphone.",
+    callButton: "Call bot",
+    hangupButton: "Hang up",
+    status: "Status",
+    identity: "Identity",
+    error: "Error",
+    back: "Back to homepage",
+    callError: "Failed to connect the call from the browser."
+  }
+} as const;
+
 export default function WebCallPage() {
+  const [lang, setLang] = useState<Language>("al");
   const [status, setStatus] = useState<CallStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [identity, setIdentity] = useState("");
   const deviceRef = useRef<Device | null>(null);
   const activeCallRef = useRef<any>(null);
+  const t = content[lang];
 
   const fetchToken = useCallback(async () => {
     const response = await fetch("/api/voice/token");
@@ -85,7 +120,7 @@ export default function WebCallPage() {
     } catch (error) {
       console.error("Call connect failed", error);
       setStatus("error");
-      setErrorMessage("Nuk u lidh dot thirrja nga browser-i.");
+      setErrorMessage(t.callError);
     }
   };
 
@@ -111,16 +146,34 @@ export default function WebCallPage() {
   return (
     <main className="section-shell pt-12">
       <div className="mx-auto max-w-2xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-        <p className="text-sm font-medium text-kosovo-deep">Web Voice Demo</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Call bot from browser</h1>
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-sm font-medium text-kosovo-deep">{t.title}</p>
+          <div className="rounded-full border border-white/80 bg-white/90 p-1 shadow-sm backdrop-blur">
+            <button
+              onClick={() => setLang("al")}
+              className={`rounded-full px-3 py-1 text-sm transition ${
+                lang === "al" ? "bg-kosovo-deep text-white" : "text-slate-600 hover:text-slate-900"
+              }`}
+              type="button"
+            >
+              Shq
+            </button>
+            <button
+              onClick={() => setLang("en")}
+              className={`rounded-full px-3 py-1 text-sm transition ${
+                lang === "en" ? "bg-kosovo-deep text-white" : "text-slate-600 hover:text-slate-900"
+              }`}
+              type="button"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+        <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">{t.heading}</h1>
         <p className="mt-3 text-slate-600">
-          Klikoni <strong>Call bot</strong> për të folur me voicebot-in direkt nga browser-i.
+          {t.intro}
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          Ju lutem kini parasysh t&apos;i jepni qasje mikrofonit tuaj ne browser dhe injoroni
-          mesazhin startues qe ndegjohet kur thirrne kete demo. Kualiteti i transkribimit varet
-          edhe nga mikrofoni juaj.
-        </p>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">{t.note}</p>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <button
@@ -128,33 +181,33 @@ export default function WebCallPage() {
             onClick={handleCall}
             className="rounded-xl bg-kosovo-deep px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
           >
-            Call bot
+            {t.callButton}
           </button>
           <button
             type="button"
             onClick={handleHangup}
             className="rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
           >
-            Hang up
+            {t.hangupButton}
           </button>
         </div>
 
         <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm">
           <p>
-            <strong>Status:</strong> {status}
+            <strong>{t.status}:</strong> {status}
           </p>
           <p className="mt-1">
-            <strong>Identity:</strong> {identity || "-"}
+            <strong>{t.identity}:</strong> {identity || "-"}
           </p>
           {errorMessage ? (
             <p className="mt-2 text-rose-700">
-              <strong>Error:</strong> {errorMessage}
+              <strong>{t.error}:</strong> {errorMessage}
             </p>
           ) : null}
         </div>
 
         <Link href="/" className="mt-6 inline-block text-sm text-kosovo-deep underline">
-          Back to homepage
+          {t.back}
         </Link>
       </div>
     </main>

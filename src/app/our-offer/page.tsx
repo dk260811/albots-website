@@ -95,7 +95,7 @@ const content = {
   al: {
     offerLabel: "Oferta Jonë",
     contact: "Kontakt",
-    albotsHome: "Albots Home",
+    albotsHome: "ALBotics Home",
     badge: "Zgjidhje për Kosovë dhe tregun shqipfolës",
     heroTitle: "Zgjidhje AI që e bëjnë shërbimin ndaj klientit më të shpejtë, më të mençur dhe më të lehtë",
     heroSubtitle:
@@ -114,7 +114,7 @@ const content = {
       "Përcaktimin e kanaleve të komunikimit (website, telefon, WhatsApp, etj.)",
       "Analizimin e proceseve që inicjohen nga këto ndërveprime",
       "Vlerësimin e burimeve të të dhënave dhe njohurive (databaza, dokumente, sisteme ekzistuese)",
-      "Identifikimin e pengesave kryesore (ngushticave) dhe sfidave operative",
+      "Identifikimin e pengesave kryesore (bottlenecks) dhe sfidave operative",
       "Zbulimin e mundësive për automatizim dhe optimizim"
     ],
     howDetailsEnding:
@@ -133,7 +133,7 @@ const content = {
       "Optimizimin e balancës mes automatizimit dhe thjeshtësisë, për të shmangur kompleksitetin e panevojshëm"
     ],
     buildDetailsEnding:
-      "Në ALBots, qasja është gjithmonë e njëjtë: zgjidhja i përshtatet klientit dhe nevojave të tij reale, jo trendit apo teknologjisë në treg.",
+      "Në ALBotics, qasja është gjithmonë e njëjtë: zgjidhja i përshtatet klientit dhe nevojave të tij reale, jo trendit apo teknologjisë në treg.",
     implementDetailsButton: "Shiko fazën e implementimit",
     implementDetailsTitle: "Implementimi në kanalet tuaja",
     implementDetailsText:
@@ -160,7 +160,7 @@ const content = {
       "Përshtatjen e zgjidhjes me ndryshimet në nevojat e klientëve dhe biznesit"
     ],
     postDetailsEnding:
-      "Në ALBots, besojmë që implementimi është vetëm hapi i parë, përmirësimi i vazhdueshëm është çelësi i vërtetë i suksesit. Nevojat e konsumatorëve ndryshojnë vazhdimisht, dhe për këtë arsye edhe zgjidhjet duhet të evoluojnë në mënyrë të vazhdueshme.",
+      "Në ALBotics, besojmë që implementimi është vetëm hapi i parë, përmirësimi i vazhdueshëm është çelësi i vërtetë i suksesit. Nevojat e konsumatorëve ndryshojnë vazhdimisht, dhe për këtë arsye edhe zgjidhjet duhet të evoluojnë në mënyrë të vazhdueshme.",
     closeLabel: "Mbyll",
     howItems: [
       {
@@ -209,7 +209,7 @@ const content = {
     footerText: "Automatizim AI për shërbim modern ndaj klientit.",
     serviceA: {
       title: "Chatbot Inteligjent për Klientë",
-      desc: "Një chatbot i trajnuar me të dhënat e kompanisë që ofron përgjigje të shpejta 24/7, relevante dhe me pasaktësi minimale. Ndërfaqja personalizohet sipas brendit tuaj.",
+      desc: "Një chatbot i trajnuar me të dhënat e kompanisë që ofron përgjigje të shpejta 24/7, relevante dhe me pasaktësi minimale. Interface personalizohet sipas brendit tuaj.",
       ctas: ["Kërko demo të personalizuar", "Kalkulo koston"],
       points: [
         "Përgjigjet pyetjeve të klientëve",
@@ -221,7 +221,7 @@ const content = {
     },
     serviceB: {
       title: "Automatizim Procesesh",
-      desc: "Një ndërfaqe interaktive që nis dhe mbështet procese kyçe në uebsajt. Nuk është vetëm chatbot pyetje-përgjigje, por një mjet që ndihmon klientin të kryejë veprime reale.",
+      desc: "Një Interface interaktive që nis dhe mbështet procese kyçe në uebsajt. Nuk është vetëm chatbot pyetje-përgjigje, por një mjet që ndihmon klientin të kryejë veprime reale.",
       ctas: ["Hulumto mundësi automatizimi"],
       points: [
         "Verifikim përdoruesi",
@@ -270,7 +270,7 @@ const content = {
   en: {
     offerLabel: "Our Offer",
     contact: "Contact",
-    albotsHome: "Albots Home",
+    albotsHome: "ALBotics Home",
     badge: "Solutions for Kosovo and Albanian-speaking markets",
     heroTitle: "AI Solutions That Make Customer Service Faster, Smarter, and Easier",
     heroSubtitle:
@@ -308,7 +308,7 @@ const content = {
       "Optimizing the balance between automation and simplicity to avoid unnecessary complexity"
     ],
     buildDetailsEnding:
-      "At ALBots, the approach is always the same: the solution adapts to the client and real business needs — not market trends or hype.",
+      "At ALBotics, the approach is always the same: the solution adapts to the client and real business needs — not market trends or hype.",
     implementDetailsButton: "View implementation phase",
     implementDetailsTitle: "Implementation in your channels",
     implementDetailsText:
@@ -335,7 +335,7 @@ const content = {
       "Adapting the solution to changing customer and business needs"
     ],
     postDetailsEnding:
-      "At ALBots, we believe implementation is only the first step — continuous improvement is the real key to success. Customer needs evolve constantly, and solutions must evolve with them.",
+      "At ALBotics, we believe implementation is only the first step — continuous improvement is the real key to success. Customer needs evolve constantly, and solutions must evolve with them.",
     closeLabel: "Close",
     howItems: [
       {
@@ -504,7 +504,7 @@ export default function OurOfferPage() {
               href="/"
               className="rounded-full border border-kosovo-deep/25 bg-white px-4 py-2 text-sm font-semibold tracking-tight text-kosovo-deep shadow-sm transition hover:border-kosovo-deep/40 hover:bg-kosovo-pale"
             >
-              ALBots Home
+              ALBotics Home
             </Link>
             <Link
               href="/our-offer"
@@ -535,6 +535,9 @@ export default function OurOfferPage() {
             <Link href="/#contact" className="transition hover:text-slate-900">
               {t.contact}
             </Link>
+            <a href="mailto:service@albotics.com" className="transition hover:text-slate-900">
+              service@albotics.com
+            </a>
           </nav>
         </div>
       </header>
@@ -765,10 +768,10 @@ export default function OurOfferPage() {
                 {t.finalCta}
               </Link>
               <a
-                href="mailto:hello@albots.ai"
+                href="mailto:service@albotics.com"
                 className="inline-flex rounded-xl border border-white/40 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-white/10"
               >
-                hello@albots.ai
+                service@albotics.com
               </a>
             </div>
           </div>
@@ -779,12 +782,12 @@ export default function OurOfferPage() {
         <div className="section-shell flex flex-col gap-2 py-0 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
           <p>
             <Link href="/" className="font-semibold text-slate-900 hover:underline">
-              Albots
+              ALBotics
             </Link>{" "}
             — {t.footerText}
           </p>
-          <a className="transition hover:text-slate-900" href="mailto:hello@albots.ai">
-            hello@albots.ai
+          <a className="transition hover:text-slate-900" href="mailto:service@albotics.com">
+            service@albotics.com
           </a>
         </div>
       </footer>
