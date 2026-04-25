@@ -657,7 +657,7 @@ export default function OurOfferPage() {
                       <div className="mt-5 flex flex-wrap gap-2.5">
                         {card.data.ctas.map((cta, index) =>
                           card.data.title === t.serviceB.title && index === 0 ? (
-                            <AutomationDiscoveryButton key={cta} label={cta} />
+                            <AutomationDiscoveryButton key={cta} label={cta} language={lang} />
                           ) : index === 0 ? (
                             <DemoRequestButton
                               key={cta}
